@@ -18,7 +18,7 @@ namespace cube
 
         #region Variables
         bool _timerRunning, _timerEnded, _inspectTimerRunning, _keyHeld;
-        double _ms, _averageTime, _lowestTime, _highestTime;
+        double _ms;
         int _inspectTime;
         #endregion
 
@@ -167,12 +167,9 @@ namespace cube
             if (savedTimes.Items.Count > 0)
             {
                 var timeList = (from string savedTime in savedTimes.Items select TimeSpan.Parse(savedTime).TotalMilliseconds).ToList();
-                _averageTime = Math.Round((timeList.Average()) / 1000) * 1000;
-                averageTimeText.Text = TimeSpan.FromMilliseconds(_averageTime).ToString();
-                _lowestTime = timeList.Min();
-                lowestTimeText.Text = TimeSpan.FromMilliseconds(_lowestTime).ToString();
-                _highestTime = timeList.Max();
-                highestTimeText.Text = TimeSpan.FromMilliseconds(_highestTime).ToString();
+                averageTimeText.Text = TimeSpan.FromMilliseconds(Math.Round((timeList.Average()) / 1000) * 1000).ToString();
+                lowestTimeText.Text = TimeSpan.FromMilliseconds(timeList.Min()).ToString();
+                highestTimeText.Text = TimeSpan.FromMilliseconds(timeList.Max()).ToString();
             }
             else if (savedTimes.Items.Count == 0)
             {
