@@ -18,10 +18,8 @@ namespace cube
 
         #region Variables
         bool _timerRunning, _timerEnded, _inspectTimerRunning, _keyHeld;
-        int _ms, _averageTime, _lowestTime, _highestTime;
-        //TODO try to use int; convert to float if neccessary
-        float _inspectTime;
-        //TODO try to use Time for inspect; use int
+        double _ms, _averageTime, _lowestTime, _highestTime;
+        int _inspectTime;
         #endregion
 
         #region Key Events
@@ -113,8 +111,8 @@ namespace cube
             {
                 if (_inspectTime > 0)
                 {
-                    _inspectTime = _inspectTime - 0.05f;
-                    inspectTimerText.Text = (_inspectTime * 100).ToString("00:00:00");
+                    _inspectTime = _inspectTime - inspectTimer.Interval;
+                    inspectTimerText.Text = TimeSpan.FromMilliseconds(_inspectTime * 60).ToString();
                 }
                 else
                 {
@@ -141,15 +139,14 @@ namespace cube
 
         void InspectTimerReset()
         {
-            _inspectTime = 15;
+            _inspectTime = 15000;
         }
         #endregion
 
         #region Times
         void SaveTime()
         {
-            savedTimes.Items.Add(timerText.Text);
-            savedTimes.TopIndex = savedTimes.Items.Count - 1;
+            savedTimes.Items.Insert(0, timerText.Text);
             GenerateTimeInfo();
         }
 
@@ -227,7 +224,7 @@ namespace cube
                 {
                     while (!stRead.EndOfStream)
                     {
-                        savedTimes.Items.Add(stRead.ReadLine());
+                        savedTimes.Items.Insert(0, stRead.ReadLine());
                     }
                 }
             }

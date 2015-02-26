@@ -39,12 +39,12 @@
             this.savedTimes = new System.Windows.Forms.ListBox();
             this.delAllTimesButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.highestTimeLabel = new System.Windows.Forms.Label();
-            this.highestTimeText = new System.Windows.Forms.Label();
-            this.lowestTimeText = new System.Windows.Forms.Label();
-            this.averageTimeText = new System.Windows.Forms.Label();
-            this.lowestTimeLabel = new System.Windows.Forms.Label();
             this.averageTimeLabel = new System.Windows.Forms.Label();
+            this.lowestTimeLabel = new System.Windows.Forms.Label();
+            this.averageTimeText = new System.Windows.Forms.Label();
+            this.lowestTimeText = new System.Windows.Forms.Label();
+            this.highestTimeText = new System.Windows.Forms.Label();
+            this.highestTimeLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -82,7 +82,6 @@
             // 
             // inspectTimer
             // 
-            this.inspectTimer.Interval = 50;
             this.inspectTimer.Tick += new System.EventHandler(this.inspectTimer_Tick);
             // 
             // scrambleText
@@ -99,7 +98,7 @@
             // delTimeButton
             // 
             this.delTimeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delTimeButton.Location = new System.Drawing.Point(104, 3);
+            this.delTimeButton.Location = new System.Drawing.Point(104, 0);
             this.delTimeButton.Name = "delTimeButton";
             this.delTimeButton.Size = new System.Drawing.Size(25, 25);
             this.delTimeButton.TabIndex = 4;
@@ -118,6 +117,7 @@
             this.savedTimes.ItemHeight = 19;
             this.savedTimes.Location = new System.Drawing.Point(0, 0);
             this.savedTimes.Name = "savedTimes";
+            this.savedTimes.ScrollAlwaysVisible = true;
             this.savedTimes.Size = new System.Drawing.Size(98, 152);
             this.savedTimes.TabIndex = 3;
             this.savedTimes.TabStop = false;
@@ -126,7 +126,7 @@
             // delAllTimesButton
             // 
             this.delAllTimesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delAllTimesButton.Location = new System.Drawing.Point(104, 120);
+            this.delAllTimesButton.Location = new System.Drawing.Point(104, 127);
             this.delAllTimesButton.Name = "delAllTimesButton";
             this.delAllTimesButton.Size = new System.Drawing.Size(60, 25);
             this.delAllTimesButton.TabIndex = 11;
@@ -148,49 +148,16 @@
             this.panel2.Size = new System.Drawing.Size(93, 152);
             this.panel2.TabIndex = 8;
             // 
-            // highestTimeLabel
+            // averageTimeLabel
             // 
-            this.highestTimeLabel.AutoSize = true;
-            this.highestTimeLabel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.highestTimeLabel.ForeColor = System.Drawing.Color.White;
-            this.highestTimeLabel.Location = new System.Drawing.Point(3, 62);
-            this.highestTimeLabel.Name = "highestTimeLabel";
-            this.highestTimeLabel.Size = new System.Drawing.Size(81, 19);
-            this.highestTimeLabel.TabIndex = 8;
-            this.highestTimeLabel.Text = "Highest:";
-            // 
-            // highestTimeText
-            // 
-            this.highestTimeText.AutoSize = true;
-            this.highestTimeText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.highestTimeText.ForeColor = System.Drawing.Color.White;
-            this.highestTimeText.Location = new System.Drawing.Point(3, 81);
-            this.highestTimeText.Name = "highestTimeText";
-            this.highestTimeText.Size = new System.Drawing.Size(81, 19);
-            this.highestTimeText.TabIndex = 7;
-            this.highestTimeText.Text = "00:00:00";
-            // 
-            // lowestTimeText
-            // 
-            this.lowestTimeText.AutoSize = true;
-            this.lowestTimeText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lowestTimeText.ForeColor = System.Drawing.Color.White;
-            this.lowestTimeText.Location = new System.Drawing.Point(3, 119);
-            this.lowestTimeText.Name = "lowestTimeText";
-            this.lowestTimeText.Size = new System.Drawing.Size(81, 19);
-            this.lowestTimeText.TabIndex = 9;
-            this.lowestTimeText.Text = "00:00:00";
-            // 
-            // averageTimeText
-            // 
-            this.averageTimeText.AutoSize = true;
-            this.averageTimeText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.averageTimeText.ForeColor = System.Drawing.Color.White;
-            this.averageTimeText.Location = new System.Drawing.Point(3, 25);
-            this.averageTimeText.Name = "averageTimeText";
-            this.averageTimeText.Size = new System.Drawing.Size(81, 19);
-            this.averageTimeText.TabIndex = 5;
-            this.averageTimeText.Text = "00:00:00";
+            this.averageTimeLabel.AutoSize = true;
+            this.averageTimeLabel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.averageTimeLabel.ForeColor = System.Drawing.Color.White;
+            this.averageTimeLabel.Location = new System.Drawing.Point(3, 6);
+            this.averageTimeLabel.Name = "averageTimeLabel";
+            this.averageTimeLabel.Size = new System.Drawing.Size(81, 19);
+            this.averageTimeLabel.TabIndex = 6;
+            this.averageTimeLabel.Text = "Average:";
             // 
             // lowestTimeLabel
             // 
@@ -203,16 +170,49 @@
             this.lowestTimeLabel.TabIndex = 10;
             this.lowestTimeLabel.Text = "Lowest:";
             // 
-            // averageTimeLabel
+            // averageTimeText
             // 
-            this.averageTimeLabel.AutoSize = true;
-            this.averageTimeLabel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.averageTimeLabel.ForeColor = System.Drawing.Color.White;
-            this.averageTimeLabel.Location = new System.Drawing.Point(3, 6);
-            this.averageTimeLabel.Name = "averageTimeLabel";
-            this.averageTimeLabel.Size = new System.Drawing.Size(81, 19);
-            this.averageTimeLabel.TabIndex = 6;
-            this.averageTimeLabel.Text = "Average:";
+            this.averageTimeText.AutoSize = true;
+            this.averageTimeText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.averageTimeText.ForeColor = System.Drawing.Color.White;
+            this.averageTimeText.Location = new System.Drawing.Point(3, 25);
+            this.averageTimeText.Name = "averageTimeText";
+            this.averageTimeText.Size = new System.Drawing.Size(81, 19);
+            this.averageTimeText.TabIndex = 5;
+            this.averageTimeText.Text = "00:00:00";
+            // 
+            // lowestTimeText
+            // 
+            this.lowestTimeText.AutoSize = true;
+            this.lowestTimeText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lowestTimeText.ForeColor = System.Drawing.Color.White;
+            this.lowestTimeText.Location = new System.Drawing.Point(3, 119);
+            this.lowestTimeText.Name = "lowestTimeText";
+            this.lowestTimeText.Size = new System.Drawing.Size(81, 19);
+            this.lowestTimeText.TabIndex = 9;
+            this.lowestTimeText.Text = "00:00:00";
+            // 
+            // highestTimeText
+            // 
+            this.highestTimeText.AutoSize = true;
+            this.highestTimeText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highestTimeText.ForeColor = System.Drawing.Color.White;
+            this.highestTimeText.Location = new System.Drawing.Point(3, 81);
+            this.highestTimeText.Name = "highestTimeText";
+            this.highestTimeText.Size = new System.Drawing.Size(81, 19);
+            this.highestTimeText.TabIndex = 7;
+            this.highestTimeText.Text = "00:00:00";
+            // 
+            // highestTimeLabel
+            // 
+            this.highestTimeLabel.AutoSize = true;
+            this.highestTimeLabel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highestTimeLabel.ForeColor = System.Drawing.Color.White;
+            this.highestTimeLabel.Location = new System.Drawing.Point(3, 62);
+            this.highestTimeLabel.Name = "highestTimeLabel";
+            this.highestTimeLabel.Size = new System.Drawing.Size(81, 19);
+            this.highestTimeLabel.TabIndex = 8;
+            this.highestTimeLabel.Text = "Highest:";
             // 
             // panel1
             // 

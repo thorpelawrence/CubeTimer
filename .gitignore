@@ -7,10 +7,13 @@
 *.sln.docstates
 
 # Build results
+[Dd]ebug/
 [Dd]ebugPublic/
+[Rr]elease/
 x64/
 build/
 bld/
+[Bb]in/
 [Oo]bj/
 
 # Roslyn cache directories
@@ -184,4 +187,3 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
-/cube/bin/Debug
