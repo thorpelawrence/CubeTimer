@@ -18,8 +18,7 @@ namespace cube
 
         #region Variables
         bool _timerRunning, _timerEnded, _inspectTimerRunning, _keyHeld;
-        double _ms;
-        int _inspectTime;
+        int _time, _inspectTime;
         #endregion
 
         #region Key Events
@@ -41,7 +40,7 @@ namespace cube
                     }
                 }
                 else if (_timerEnded) _timerEnded = false;
-                if (_ms > 0 & !_timerRunning)
+                if (_time > 0 & !_timerRunning)
                 {
                     TimerReset();
                 }
@@ -76,8 +75,8 @@ namespace cube
         #region Timer
         void timer1_Tick(object sender, EventArgs e)
         {
-            _ms++;
-            timerText.Text = TimeSpan.FromMilliseconds(_ms * 1000).ToString();
+            _time = _time + timer1.Interval;
+            timerText.Text = TimeSpan.FromMilliseconds(_time * 100).ToString();
         }
 
         void TimerStart()
@@ -100,7 +99,7 @@ namespace cube
 
         void TimerReset()
         {
-            _ms = 0;
+            _time = 0;
         }
         #endregion
 
