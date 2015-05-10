@@ -79,14 +79,5 @@ namespace cube.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 00:00:00.
-        /// </summary>
-        internal static string time_0 {
-            get {
-                return ResourceManager.GetString("time_0", resourceCulture);
-            }
-        }
     }
 }

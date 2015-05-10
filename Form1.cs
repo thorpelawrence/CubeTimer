@@ -3,7 +3,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using cube.Properties;
 
 namespace cube
 {
@@ -18,7 +17,8 @@ namespace cube
 
         #region Variables
         bool _timerRunning, _timerEnded, _inspectTimerRunning, _keyHeld;
-        int _time, _inspectTime;
+        long _time;
+        int _inspectTime;
         #endregion
 
         #region Key Events
@@ -59,7 +59,7 @@ namespace cube
                 _keyHeld = true;
                 if (e.KeyCode == Keys.Space & !_timerRunning)
                 {
-                    timerText.Text = Resources.time_0;
+                    timerText.Text = TimeSpan.Zero.ToString();
                     timerText.ForeColor = Color.Lime;
                     InspectTimerStart();
                     scrambleText.Visible = false;
@@ -76,7 +76,8 @@ namespace cube
         void timer1_Tick(object sender, EventArgs e)
         {
             _time = _time + timer1.Interval;
-            timerText.Text = TimeSpan.FromMilliseconds(_time * 100).ToString();
+            TimeSpan t = TimeSpan.FromMilliseconds(_time);
+            timerText.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", t.Minutes, t.Seconds, t.Milliseconds / timer1.Interval);
         }
 
         void TimerStart()
@@ -146,22 +147,22 @@ namespace cube
         void SaveTime()
         {
             savedTimes.Items.Insert(0, timerText.Text);
-            GenerateTimeInfo();
+            GetTimeInfo();
         }
 
         void DeleteTime()
         {
             savedTimes.Items.Remove(savedTimes.SelectedItem);
-            GenerateTimeInfo();
+            GetTimeInfo();
         }
 
         void DeleteAllTimes()
         {
             savedTimes.Items.Clear();
-            GenerateTimeInfo();
+            GetTimeInfo();
         }
 
-        void GenerateTimeInfo()
+        void GetTimeInfo()
         {
             if (savedTimes.Items.Count > 0)
             {
@@ -172,9 +173,9 @@ namespace cube
             }
             else if (savedTimes.Items.Count == 0)
             {
-                averageTimeText.Text = Resources.time_0;
-                lowestTimeText.Text = Resources.time_0;
-                highestTimeText.Text = Resources.time_0;
+                averageTimeText.Text = TimeSpan.Zero.ToString();
+                lowestTimeText.Text = TimeSpan.Zero.ToString();
+                highestTimeText.Text = TimeSpan.Zero.ToString();
             }
             OutputTimes();
             if (savedTimes.Items.Count == 0) DeleteTimesFile();
@@ -224,7 +225,7 @@ namespace cube
                     }
                 }
             }
-            GenerateTimeInfo();
+            GetTimeInfo();
         }
 
         void DeleteTimesFile()
