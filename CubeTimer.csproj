@@ -7,8 +7,8 @@
     <ProjectGuid>{98CDEBA3-0797-4658-8754-10596645704E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>cube</RootNamespace>
-    <AssemblyName>cube</AssemblyName>
+    <RootNamespace>CubeTimer</RootNamespace>
+    <AssemblyName>CubeTimer</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
