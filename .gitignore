@@ -19,7 +19,8 @@ x64/
 x86/
 bld/
 [Bb]in/*/*
-!CubeTimer.exe
+!*.exe
+*.vshost.exe
 [Oo]bj/
 
 # Visual Studio 2015 cache/options directory
