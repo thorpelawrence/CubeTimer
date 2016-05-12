@@ -21,6 +21,7 @@ bld/
 [Bb]in/*/*
 !*.exe
 *.vshost.exe
+*.exe.*
 [Oo]bj/
 
 # Visual Studio 2015 cache/options directory
